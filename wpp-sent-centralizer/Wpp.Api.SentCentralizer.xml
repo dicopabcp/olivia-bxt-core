@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wpp.Api.SentCentralizer</name>
+    </assembly>
+    <members>
+        <member name="M:Wpp.Api.SentCentralizer.Controllers.SentCentralizerController.SendMessageCentralizer(WPP.ABSTRACTION.ENTITIES.MessageApplication.MessageApplicationModel)">
+            <summary>
+            Envia un mensaje de WhatsApp por el proveedor configurado para la cuenta de origen (Gupshup o Sinch)
+            </summary>
+            <remarks>
+            Ejemplo de mensaje CTA_URL (boton que abre una URL, solo Gupshup). "classMessageCtaUrlHeader" y "urlHeaderCtaUrl" son opcionales:
+            ```json
+            {
+              "typeMessage": "CTA_URL",
+              "cellphone": [ "59171234567" ],
+              "destinationAccount": "59175883934",
+              "identifyChatBot": true,
+              "message": "Presiona el boton y escribe tu clave en la pagina segura que se abrira.",
+              "url": "https://web-whatsapp.bcp.example/s/TOKEN",
+              "parametersInteractive": { "nameSelectorButton": "Iniciar sesion", "footer": "El enlace vence en 10 minutos" },
+              "classMessageCtaUrlHeader": "IMAGE",
+              "urlHeaderCtaUrl": "https://web-whatsapp.bcp.example/banner.png"
+            }
+            ```
+            Responde code 400 si falta message, url (https) o parametersInteractive.nameSelectorButton, o si la cuenta usa Sinch.
+            </remarks>
+        </member>
+    </members>
+</doc>
